@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: transparent;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pet {
+    position: relative;
+    width: 160px;
+    height: 200px;
+    user-select: none;
+}
+
+/* 黑发少年 · 蹲坐 */
+.body {
+    position: absolute;
+    width: 120px;
+    height: 130px;
+    background: linear-gradient(160deg, #2b2b33 0%, #1c1c22 100%);
+    border-radius: 48% 48% 42% 42%;
+    left: 20px;
+    top: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    animation: breathe 2s ease-in-out infinite;
+}
+
+/* 头发 */
+.hair {
+    position: absolute;
+    width: 128px;
+    height: 46px;
+    background: #141419;
+    border-radius: 50% 50% 35% 35%;
+    left: 16px;
+    top: 34px;
+}
+
+.hair .fringe {
+    position: absolute;
+    width: 18px;
+    height: 30px;
+    background: #141419;
+    border-radius: 0 0 12px 12px;
+    top: 20px;
+}
+.hair .fringe.l { left: 28px; transform: rotate(-8deg); }
+.hair .fringe.m { left: 52px; top: 24px; }
+.hair .fringe.r { left: 78px; transform: rotate(8deg); }
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    top: 45px;
+}
+
+/* 淡眉 */
+.brow {
+    position: absolute;
+    width: 18px;
+    height: 2.5px;
+    background: #8a8a94;
+    border-radius: 2px;
+    top: 14px;
+}
+.brow.left { left: 38px; }
+.brow.right { right: 38px; }
+
+/* 狭长冷淡的眼 */
+.eye {
+    position: absolute;
+    width: 14px;
+    height: 6px;
+    background: #3a3a44;
+    border-radius: 6px;
+    top: 26px;
+    animation: blink 4s infinite;
+}
+.eye.left { left: 39px; }
+.eye.right { right: 39px; }
+
+.eye.closed {
+    height: 2.5px;
+    top: 28px;
+    background: #3a3a44;
+    border-radius: 2px;
+}
+
+.pupil {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #ffffff;
+    border-radius: 50%;
+    top: 1px;
+    right: 2px;
+}
+
+.blush {
+    position: absolute;
+    width: 16px;
+    height: 8px;
+    background: rgba(255, 130, 130, 0.4);
+    border-radius: 50%;
+    top: 40px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.blush.left { left: 26px; }
+.blush.right { right: 26px; }
+
+/* 薄唇，抿着 */
+.mouth {
+    position: absolute;
+    width: 12px;
+    height: 3px;
+    border-bottom: 2px solid #3a3a44;
+    border-radius: 0 0 6px 6px;
+    left: 50%;
+    top: 44px;
+    transform: translateX(-50%);
+}
+
+/* 环膝的手 */
+.arm {
+    position: absolute;
+    width: 30px;
+    height: 26px;
+    background: #2b2b33;
+    border-radius: 50% 50% 40% 40%;
+    bottom: 8px;
+}
+.arm.left { left: 14px; transform: rotate(12deg); }
+.arm.right { right: 14px; transform: rotate(-12deg); }
+
+.bubble {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(20, 20, 25, 0.92);
+    padding: 8px 14px;
+    border-radius: 16px;
+    font-size: 13px;
+    color: #e8e8f0;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: rgba(20, 20, 25, 0.92);
+}
+
+.bubble.show {
+    opacity: 1;
+}
+
+@keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes blink {
+    0%, 45%, 55%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.2); }
+}
+
+.jump {
+    animation: jump 0.5s ease !important;
+}
+
+@keyframes jump {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-40px) scale(1.05); }
+}
+
+.shy .blush {
+    opacity: 1;
+}
+
+.shy .mouth {
+    width: 10px;
+    height: 8px;
+    border: 2px solid #3a3a44;
+    border-radius: 50%;
+    background: transparent;
+}
