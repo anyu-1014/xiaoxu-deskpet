@@ -17,207 +17,19 @@ body {
 #pet {
     position: relative;
     width: 110px;
-    height: 140px;
+    height: 100px;
     user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* 身体：蹲坐，深色上衣 */
-.body {
-    position: absolute;
-    width: 86px;
-    height: 90px;
-    background: linear-gradient(160deg, #3a3f4a 0%, #23262e 100%);
-    border-radius: 46% 46% 42% 42%;
-    left: 12px;
-    top: 42px;
-    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.22);
-    animation: breathe 2.4s ease-in-out infinite;
-}
-
-/* 头 */
-.head {
-    position: absolute;
-    width: 68px;
-    height: 66px;
-    background: #f2e8e0;
-    border-radius: 48% 48% 44% 44%;
-    left: 21px;
-    top: -14px;
-    z-index: 3;
-}
-
-/* 后发 */
-.hair.back {
-    position: absolute;
-    width: 74px;
-    height: 62px;
-    background: #1c1e24;
-    border-radius: 50% 50% 42% 42%;
-    left: -3px;
-    top: -4px;
-    z-index: 1;
-}
-
-/* 前发 */
-.hair.front {
-    position: absolute;
-    width: 74px;
-    height: 52px;
-    background: #1c1e24;
-    left: -3px;
-    top: -6px;
-    border-radius: 50% 50% 30% 30%;
-    z-index: 5;
-}
-
-.bangs {
-    position: absolute;
-    background: #1c1e24;
-    top: 20px;
-    height: 16px;
-}
-
-.bangs.left {
-    left: 8px;
-    width: 22px;
-    border-radius: 0 0 60% 40%;
-    transform: rotate(8deg);
-}
-
-.bangs.mid {
-    left: 26px;
-    width: 24px;
-    border-radius: 0 0 50% 50%;
-}
-
-.bangs.right {
-    right: 6px;
-    width: 20px;
-    border-radius: 0 0 40% 60%;
-    transform: rotate(-8deg);
-}
-
-.side {
-    position: absolute;
-    width: 9px;
-    height: 26px;
-    background: #1c1e24;
-    top: 26px;
-    border-radius: 4px;
-}
-
-.side.left {
-    left: -2px;
-}
-
-.side.right {
-    right: -2px;
-}
-
-/* 脸 */
-.face {
-    position: absolute;
-    width: 100%;
-    height: 44px;
-    top: 22px;
-    z-index: 6;
-}
-
-/* 淡眉 */
-.brow {
-    position: absolute;
-    width: 12px;
-    height: 2px;
-    background: #b9a99b;
-    top: 2px;
-    border-radius: 1px;
-}
-
-.brow.left {
-    left: 14px;
-    transform: rotate(-6deg);
-}
-
-.brow.right {
-    right: 14px;
-    transform: rotate(6deg);
-}
-
-/* 细长冷淡眼 */
-.eye {
-    position: absolute;
-    width: 16px;
-    height: 7px;
-    background: #2d2d2d;
-    border-radius: 8px 8px 6px 6px;
-    top: 12px;
-    animation: blink 4s infinite;
-}
-
-.eye.left {
-    left: 11px;
-}
-
-.eye.right {
-    right: 11px;
-}
-
-.eye.closed {
-    height: 2px;
-    top: 15px;
-    border-radius: 1px;
-}
-
-/* 薄唇 */
-.mouth {
-    position: absolute;
-    width: 14px;
-    height: 5px;
-    border-bottom: 2px solid #c98a7a;
-    border-radius: 0 0 10px 10px;
-    left: 50%;
-    top: 28px;
-    transform: translateX(-50%);
-}
-
-/* 手臂：环着膝 */
-.arm {
-    position: absolute;
-    width: 22px;
-    height: 34px;
-    background: #2c2f38;
-    border-radius: 50% 50% 44% 44%;
-    top: 44px;
-    z-index: 2;
-}
-
-.arm.left {
-    left: -6px;
-    transform: rotate(28deg);
-}
-
-.arm.right {
-    right: -6px;
-    transform: rotate(-28deg);
-}
-
-/* 膝盖：蜷起 */
-.knee {
-    position: absolute;
-    width: 26px;
-    height: 20px;
-    background: #2c2f38;
-    border-radius: 50%;
-    bottom: -8px;
-    z-index: 1;
-}
-
-.knee.left {
-    left: 8px;
-}
-
-.knee.right {
-    right: 8px;
+/* 像素小猫 */
+#cat {
+    image-rendering: pixelated;
+    width: 100px;
+    height: 88px;
+    animation: breathe 2.6s ease-in-out infinite;
 }
 
 .bubble {
@@ -254,12 +66,7 @@ body {
 
 @keyframes breathe {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.03); }
-}
-
-@keyframes blink {
-    0%, 45%, 55%, 100% { transform: scaleY(1); }
-    50% { transform: scaleY(0.15); }
+    50% { transform: scale(1.04); }
 }
 
 .jump {
@@ -269,17 +76,4 @@ body {
 @keyframes jump {
     0%, 100% { transform: translateY(0) scale(1); }
     50% { transform: translateY(-30px) scale(1.05); }
-}
-
-.shy .mouth {
-    width: 8px;
-    height: 8px;
-    border: 2px solid #c98a7a;
-    border-radius: 50%;
-    background: transparent;
-    top: 27px;
-}
-
-.shy .brow {
-    top: 4px;
 }
