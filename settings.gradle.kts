@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Ai-Live-Overflow-Android"
+rootProject.name = "AI-Live-Overflow-Android"
 include(":app")
