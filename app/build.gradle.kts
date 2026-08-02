@@ -12,7 +12,7 @@ android {
         minSdk = 26
         targetSdk = 34
         versionCode = 1
-        versionName = \"1.0\"
+        versionName = "1.0"
     }
 
     buildFeatures {
@@ -20,18 +20,18 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VESSION_17
+        sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jwmTarget = \"17\"
+        jvmTarget = "17"
     }
 }
 
 dependencies {
-    implementation(\"androidx.core:core-ktx:1.12.0\")
-    implementation(\"androidx.appcompat:appcompat:1.6.1\")
-    implementation(\"com.google.android.material:material:1.11.0\")
-    implementation(\"androidx.constraintlayout:constraintlayout:2.1.4\")
-    implementation(\"org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3\")
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.11.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 }
