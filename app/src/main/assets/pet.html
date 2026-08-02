@@ -7,33 +7,45 @@
 </head>
 <body>
     <div id="pet">
-        <div class="body">
-            <div class="arm left"></div>
-            <div class="arm right"></div>
-            <div class="knee left"></div>
-            <div class="knee right"></div>
-            <div class="head">
-                <div class="hair back"></div>
-                <div class="hair front">
-                    <div class="bangs left"></div>
-                    <div class="bangs mid"></div>
-                    <div class="bangs right"></div>
-                    <div class="side left"></div>
-                    <div class="side right"></div>
-                </div>
-                <div class="face">
-                    <div class="brow left"></div>
-                    <div class="brow right"></div>
-                    <div class="eye left"></div>
-                    <div class="eye right"></div>
-                    <div class="mouth"></div>
-                </div>
-            </div>
-        </div>
+        <canvas id="cat" width="128" height="112"></canvas>
         <div id="bubble" class="bubble hidden">
             <span id="bubbleText"></span>
         </div>
     </div>
+    <script>
+    (function () {
+        var canvas = document.getElementById('cat');
+        var ctx = canvas.getContext('2d');
+        ctx.imageSmoothingEnabled = false;
+        var C = { O: '#f5a04b', D: '#c9802e', K: '#3b2b20', W: '#fff6ea' };
+        var map = [
+            '....OO....OO....',
+            '...OOOO..OOOO...',
+            '..OOOOOOOOOOOO..',
+            '..OOOOOOOOOOOO..',
+            '..OO.KK..KK.OO..',
+            '..OO.KK..KK.OO..',
+            '..OOOOOOOOOOOO..',
+            '...OOOOOOOOOO...',
+            '..OOWWWWWWWWOO..',
+            '..OOWWWWWWWWOO..',
+            '..OOOOOOOOOOOO..',
+            '..OO..OOOO..OO..',
+            '..OO..OOOO..OO..',
+            '..OO..OOOO..OO..'
+        ];
+        var cell = 8;
+        for (var y = 0; y < map.length; y++) {
+            var row = map[y];
+            for (var x = 0; x < row.length; x++) {
+                var ch = row[x];
+                if (ch === '.') continue;
+                ctx.fillStyle = C[ch];
+                ctx.fillRect(x * cell, y * cell, cell, cell);
+            }
+        }
+    })();
+    </script>
     <script src="pet.js"></script>
 </body>
 </html>
