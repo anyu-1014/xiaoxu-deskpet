@@ -16,159 +16,236 @@ body {
 
 #pet {
     position: relative;
-    width: 160px;
-    height: 200px;
+    width: 110px;
+    height: 140px;
     user-select: none;
 }
 
-/* 黑发少年 · 蹲坐 */
+/* 身体：蹲坐，深色上衣 */
 .body {
     position: absolute;
-    width: 120px;
-    height: 130px;
-    background: linear-gradient(160deg, #2b2b33 0%, #1c1c22 100%);
-    border-radius: 48% 48% 42% 42%;
-    left: 20px;
-    top: 50px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    animation: breathe 2s ease-in-out infinite;
+    width: 86px;
+    height: 90px;
+    background: linear-gradient(160deg, #3a3f4a 0%, #23262e 100%);
+    border-radius: 46% 46% 42% 42%;
+    left: 12px;
+    top: 42px;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.22);
+    animation: breathe 2.4s ease-in-out infinite;
 }
 
-/* 头发 */
-.hair {
+/* 头 */
+.head {
     position: absolute;
-    width: 128px;
-    height: 46px;
-    background: #141419;
-    border-radius: 50% 50% 35% 35%;
-    left: 16px;
-    top: 34px;
+    width: 68px;
+    height: 66px;
+    background: #f2e8e0;
+    border-radius: 48% 48% 44% 44%;
+    left: 21px;
+    top: -14px;
+    z-index: 3;
 }
 
-.hair .fringe {
+/* 后发 */
+.hair.back {
     position: absolute;
-    width: 18px;
-    height: 30px;
-    background: #141419;
-    border-radius: 0 0 12px 12px;
+    width: 74px;
+    height: 62px;
+    background: #1c1e24;
+    border-radius: 50% 50% 42% 42%;
+    left: -3px;
+    top: -4px;
+    z-index: 1;
+}
+
+/* 前发 */
+.hair.front {
+    position: absolute;
+    width: 74px;
+    height: 52px;
+    background: #1c1e24;
+    left: -3px;
+    top: -6px;
+    border-radius: 50% 50% 30% 30%;
+    z-index: 5;
+}
+
+.bangs {
+    position: absolute;
+    background: #1c1e24;
     top: 20px;
+    height: 16px;
 }
-.hair .fringe.l { left: 28px; transform: rotate(-8deg); }
-.hair .fringe.m { left: 52px; top: 24px; }
-.hair .fringe.r { left: 78px; transform: rotate(8deg); }
 
+.bangs.left {
+    left: 8px;
+    width: 22px;
+    border-radius: 0 0 60% 40%;
+    transform: rotate(8deg);
+}
+
+.bangs.mid {
+    left: 26px;
+    width: 24px;
+    border-radius: 0 0 50% 50%;
+}
+
+.bangs.right {
+    right: 6px;
+    width: 20px;
+    border-radius: 0 0 40% 60%;
+    transform: rotate(-8deg);
+}
+
+.side {
+    position: absolute;
+    width: 9px;
+    height: 26px;
+    background: #1c1e24;
+    top: 26px;
+    border-radius: 4px;
+}
+
+.side.left {
+    left: -2px;
+}
+
+.side.right {
+    right: -2px;
+}
+
+/* 脸 */
 .face {
     position: absolute;
     width: 100%;
-    height: 80px;
-    top: 45px;
+    height: 44px;
+    top: 22px;
+    z-index: 6;
 }
 
 /* 淡眉 */
 .brow {
     position: absolute;
-    width: 18px;
-    height: 2.5px;
-    background: #8a8a94;
-    border-radius: 2px;
-    top: 14px;
+    width: 12px;
+    height: 2px;
+    background: #b9a99b;
+    top: 2px;
+    border-radius: 1px;
 }
-.brow.left { left: 38px; }
-.brow.right { right: 38px; }
 
-/* 狭长冷淡的眼 */
+.brow.left {
+    left: 14px;
+    transform: rotate(-6deg);
+}
+
+.brow.right {
+    right: 14px;
+    transform: rotate(6deg);
+}
+
+/* 细长冷淡眼 */
 .eye {
     position: absolute;
-    width: 14px;
-    height: 6px;
-    background: #3a3a44;
-    border-radius: 6px;
-    top: 26px;
+    width: 16px;
+    height: 7px;
+    background: #2d2d2d;
+    border-radius: 8px 8px 6px 6px;
+    top: 12px;
     animation: blink 4s infinite;
 }
-.eye.left { left: 39px; }
-.eye.right { right: 39px; }
+
+.eye.left {
+    left: 11px;
+}
+
+.eye.right {
+    right: 11px;
+}
 
 .eye.closed {
-    height: 2.5px;
-    top: 28px;
-    background: #3a3a44;
-    border-radius: 2px;
+    height: 2px;
+    top: 15px;
+    border-radius: 1px;
 }
 
-.pupil {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: #ffffff;
-    border-radius: 50%;
-    top: 1px;
-    right: 2px;
-}
-
-.blush {
-    position: absolute;
-    width: 16px;
-    height: 8px;
-    background: rgba(255, 130, 130, 0.4);
-    border-radius: 50%;
-    top: 40px;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-.blush.left { left: 26px; }
-.blush.right { right: 26px; }
-
-/* 薄唇，抿着 */
+/* 薄唇 */
 .mouth {
     position: absolute;
-    width: 12px;
-    height: 3px;
-    border-bottom: 2px solid #3a3a44;
-    border-radius: 0 0 6px 6px;
+    width: 14px;
+    height: 5px;
+    border-bottom: 2px solid #c98a7a;
+    border-radius: 0 0 10px 10px;
     left: 50%;
-    top: 44px;
+    top: 28px;
     transform: translateX(-50%);
 }
 
-/* 环膝的手 */
+/* 手臂：环着膝 */
 .arm {
     position: absolute;
-    width: 30px;
-    height: 26px;
-    background: #2b2b33;
-    border-radius: 50% 50% 40% 40%;
-    bottom: 8px;
+    width: 22px;
+    height: 34px;
+    background: #2c2f38;
+    border-radius: 50% 50% 44% 44%;
+    top: 44px;
+    z-index: 2;
 }
-.arm.left { left: 14px; transform: rotate(12deg); }
-.arm.right { right: 14px; transform: rotate(-12deg); }
+
+.arm.left {
+    left: -6px;
+    transform: rotate(28deg);
+}
+
+.arm.right {
+    right: -6px;
+    transform: rotate(-28deg);
+}
+
+/* 膝盖：蜷起 */
+.knee {
+    position: absolute;
+    width: 26px;
+    height: 20px;
+    background: #2c2f38;
+    border-radius: 50%;
+    bottom: -8px;
+    z-index: 1;
+}
+
+.knee.left {
+    left: 8px;
+}
+
+.knee.right {
+    right: 8px;
+}
 
 .bubble {
     position: absolute;
-    top: -50px;
+    top: -38px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(20, 20, 25, 0.92);
-    padding: 8px 14px;
-    border-radius: 16px;
-    font-size: 13px;
-    color: #e8e8f0;
+    background: white;
+    padding: 6px 12px;
+    border-radius: 14px;
+    font-size: 12px;
+    color: #333;
     white-space: nowrap;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     opacity: 0;
     transition: opacity 0.3s;
     pointer-events: none;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 10;
 }
 
 .bubble::after {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: -7px;
     left: 50%;
     transform: translateX(-50%);
-    border: 8px solid transparent;
-    border-top-color: rgba(20, 20, 25, 0.92);
+    border: 7px solid transparent;
+    border-top-color: white;
 }
 
 .bubble.show {
@@ -177,12 +254,12 @@ body {
 
 @keyframes breathe {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.02); }
+    50% { transform: scale(1.03); }
 }
 
 @keyframes blink {
     0%, 45%, 55%, 100% { transform: scaleY(1); }
-    50% { transform: scaleY(0.2); }
+    50% { transform: scaleY(0.15); }
 }
 
 .jump {
@@ -191,17 +268,18 @@ body {
 
 @keyframes jump {
     0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-40px) scale(1.05); }
-}
-
-.shy .blush {
-    opacity: 1;
+    50% { transform: translateY(-30px) scale(1.05); }
 }
 
 .shy .mouth {
-    width: 10px;
+    width: 8px;
     height: 8px;
-    border: 2px solid #3a3a44;
+    border: 2px solid #c98a7a;
     border-radius: 50%;
     background: transparent;
+    top: 27px;
+}
+
+.shy .brow {
+    top: 4px;
 }
