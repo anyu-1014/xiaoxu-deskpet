@@ -7,7 +7,7 @@
 </head>
 <body>
     <div id="pet">
-        <canvas id="cat" width="128" height="112"></canvas>
+        <canvas id="cat" width="90" height="90"></canvas>
         <div id="bubble" class="bubble hidden">
             <span id="bubbleText"></span>
         </div>
@@ -16,34 +16,36 @@
     (function () {
         var canvas = document.getElementById('cat');
         var ctx = canvas.getContext('2d');
-        ctx.imageSmoothingEnabled = false;
-        var C = { O: '#f5a04b', D: '#c9802e', K: '#3b2b20', W: '#fff6ea' };
-        var map = [
-            '....OO....OO....',
-            '...OOOO..OOOO...',
-            '..OOOOOOOOOOOO..',
-            '..OOOOOOOOOOOO..',
-            '..OO.KK..KK.OO..',
-            '..OO.KK..KK.OO..',
-            '..OOOOOOOOOOOO..',
-            '...OOOOOOOOOO...',
-            '..OOWWWWWWWWOO..',
-            '..OOWWWWWWWWOO..',
-            '..OOOOOOOOOOOO..',
-            '..OO..OOOO..OO..',
-            '..OO..OOOO..OO..',
-            '..OO..OOOO..OO..'
-        ];
-        var cell = 8;
-        for (var y = 0; y < map.length; y++) {
-            var row = map[y];
-            for (var x = 0; x < row.length; x++) {
-                var ch = row[x];
-                if (ch === '.') continue;
-                ctx.fillStyle = C[ch];
-                ctx.fillRect(x * cell, y * cell, cell, cell);
-            }
+        var W = canvas.width, H = canvas.height;
+        var cx = W / 2, cy = H / 2;
+        var outer = 38, inner = 15;
+        ctx.beginPath();
+        for (var i = 0; i < 10; i++) {
+            var r = i % 2 === 0 ? outer : inner;
+            var a = i * Math.PI / 5 - Math.PI / 2;
+            var x = cx + r * Math.cos(a);
+            var y = cy + r * Math.sin(a);
+            if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
         }
+        ctx.closePath();
+        var g = ctx.createLinearGradient(0, cy - outer, 0, cy + outer);
+        g.addColorStop(0, '#ffe066');
+        g.addColorStop(1, '#ffb83d');
+        ctx.fillStyle = g;
+        ctx.fill();
+        ctx.strokeStyle = '#e8962e';
+        ctx.lineWidth = 3;
+        ctx.lineJoin = 'round';
+        ctx.stroke();
+        ctx.fillStyle = '#3b2b20';
+        ctx.beginPath(); ctx.arc(cx - 13, cy - 9, 3.5, 0, Math.PI * 2); ctx.fill();
+        ctx.beginPath(); ctx.arc(cx + 13, cy - 9, 3.5, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = 'rgba(255, 130, 130, 0.55)';
+        ctx.beginPath(); ctx.arc(cx - 23, cy + 2, 4, 0, Math.PI * 2); ctx.fill();
+        ctx.beginPath(); ctx.arc(cx + 23, cy + 2, 4, 0, Math.PI * 2); ctx.fill();
+        ctx.strokeStyle = '#3b2b20';
+        ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.arc(cx, cy + 5, 5, 0.15 * Math.PI, 0.85 * Math.PI); ctx.stroke();
     })();
     </script>
     <script src="pet.js"></script>
