@@ -128,3 +128,4 @@ window.petEngine = {
 };
 
 resetIdle();
+showBubble('小叙在呢，戳我呀', 5000);
