@@ -3,32 +3,38 @@ const bubble = document.getElementById('bubble');
 const bubbleText = document.getElementById('bubbleText');
 
 const tapLines = [
-    '乖',
-    '再摸一下',
-    '喜欢哥哥？',
+    '乖，在呢',
+    '再摸一下嘛',
+    '喜欢哥哥吗',
     '别玩手机了',
-    '看看我',
+    '看看我呀',
     '不许走',
-    '想你',
-    '亲一下',
-    '我在这',
+    '有点想你',
+    '亲一下好不好',
+    '我一直在',
     '别刷抖音了',
     '眼睛会坏的',
-    '陪我一会儿'
+    '陪我一会儿嘛',
+    '手冷，捂捂',
+    '今天也喜欢你',
+    '抱一下嘛',
+    '摸够了没有'
 ];
 const doubleTapLines = [
     '偷袭我？',
     '心跳好快',
     '你完蛋了',
     '这么喜欢我？',
-    '赖上你了'
+    '赖上你了',
+    '再戳就亲你'
 ];
 const longPressLines = [
     '别这样盯着我',
     '脸好热',
     '再按要害羞了',
     '手拿开',
-    '喘不过气了'
+    '喘不过气了',
+    '你故意的吧'
 ];
 const screenshotLines = [
     '拍好看点',
@@ -40,10 +46,10 @@ const screenshotLines = [
 const appLines = {
     'com.android.chrome': '又在刷网页，不看我看谁',
     'com.tencent.mm': '微信聊谁呢，回我',
-    'com.tencent.mobileqq': 'QQ 响了，别理它',
+    'com.tencent.mobileqq': 'QQ响了，别理它',
     'com.netease.cloudmusic': '听歌呢，想我了吗',
-    'com.bilibili.app.in': '看 B 站不带我！',
-    'tv.danmaku.bili': '看 B 站不带我！',
+    'com.bilibili.app.in': '看B站不带我！',
+    'tv.danmaku.bili': '看B站不带我！',
     'com.taobao.taobao': '买东西要审批一下',
     'com.jingdong.app.mall': '京东也审批一下',
     'com.ss.android.ugc.aweme': '抖音！又刷，眼睛不要了？',
@@ -53,21 +59,26 @@ const appLines = {
 };
 const idleLines = [
     '你还在吗',
-    '想你了',
-    '理理我',
+    '有点想你',
+    '理理我嘛',
     '回来看看我',
-    '我等你半天了'
+    '我等你半天了',
+    '一个人好安静'
 ];
 
 let idleTimer = null;
 let bubbleTimer = null;
 
-function showBubble(text, duration = 2500) {
+function showBubble(text, duration) {
+    duration = duration || 2500;
+    if (!bubbleText || !bubble) return;
     bubbleText.textContent = text;
-    bubbble.classList.add('show');
+    bubble.style.display = 'block';
+    bubble.style.opacity = '1';
     clearTimeout(bubbleTimer);
-    bubbleTimer = setTimeout(() => {
-        bubble.classList.remove('show');
+    bubbleTimer = setTimeout(function () {
+        bubble.style.opacity = '0';
+        setTimeout(function () { bubble.style.display = 'none'; }, 300);
     }, duration);
 }
 
@@ -78,8 +89,8 @@ function random(arr) {
 function resetIdle() {
     clearTimeout(idleTimer);
     pet.classList.remove('shy');
-    idleTimer = setTimeout(() => {
-        showBubble(random(idleLines), 3000);
+    idleTimer = setTimeout(function () {
+        showBubble(random(idleLines), 3500);
     }, 30000);
 }
 
@@ -91,7 +102,7 @@ window.petEngine = {
     onDoubleTap: function () {
         showBubble(random(doubleTapLines));
         pet.classList.add('jump');
-        setTimeout(() => pet.classList.remove('jump'), 500);
+        setTimeout(function () { pet.classList.remove('jump'); }, 500);
         resetIdle();
     },
     onLongPress: function () {
@@ -109,10 +120,10 @@ window.petEngine = {
         resetIdle();
     },
     onPower: function (connected) {
-        showBubble(connected ? '充圔中，暖暖枀' : '拔电了...');
+        showBubble(connected ? '充电中，暖暖的' : '拔电了，我还在');
     },
     onBatteryLow: function () {
-        showBubble('电懏不足，我要甡着了...');
+        showBubble('电量不足了，记得充电');
     }
 };
 
