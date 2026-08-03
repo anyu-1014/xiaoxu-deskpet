@@ -33,7 +33,7 @@ body {
 
 .bubble {
     position: absolute;
-    bottom: calc(100% + 10px);
+    top: 4px;
     left: 50%;
     transform: translateX(-50%);
     background: #ffffff;
