@@ -3,53 +3,56 @@ const bubble = document.getElementById('bubble');
 const bubbleText = document.getElementById('bubbleText');
 
 const tapLines = [
-    '乖。',
-    '在呢，没走。',
-    '摸够了没。',
-    '别戳了。',
-    '手痒？',
-    '我在。',
-    '想我了？',
-    '别闹。'
+    '乖',
+    '看看我',
+    '想你',
+    '再摸一下',
+    '喜欢我吗',
+    '我在这',
+    '不许走',
+    '摸摸头',
+    '安安',
+    '陪陪我'
 ];
 const doubleTapLines = [
-    '这么想我？',
-    '亲一下。',
-    '又舍不得我走？',
-    '跳给你看了，乖。',
-    '喜欢你。'
+    '这么急？',
+    '亲一下',
+    '蹭蹭你',
+    '抱一下',
+    '想我啦？'
 ];
 const longPressLines = [
-    '别一直按着。',
-    '按这么紧，怕我跑？',
-    '知道了，我不走。',
-    '再按就亲你了。'
+    '别走',
+    '再待会儿',
+    '抱紧点',
+    '我哪也不去',
+    '抓这么紧'
 ];
 const screenshotLines = [
-    '拍到了？存好。',
-    '截图里有我，别删。',
-    '记得发我看看。',
-    '拍我干嘛，想看就看真人。'
+    '拍到了？存好',
+    '截图里有我',
+    '想我了就看看',
+    '这张拍得好'
 ];
 const idleLines = [
-    '人呢。',
-    '想你了。',
-    '回来看看我。',
-    '别丢下我。',
-    '我在这。'
+    '乖，在呢',
+    '想你',
+    '看看我嘛',
+    '别玩手机了',
+    '陪你'
 ];
 const appLines = {
     'com.android.chrome': '又在网上看什么。',
-    'com.tencent.mm': '微信聊得挺热闹。',
+    'com.tencent.mm': '微信聊得热闹？',
     'com.tencent.mobileqq': 'QQ响个不停。',
     'com.netease.cloudmusic': '听歌，不带我。',
     'com.bilibili.app.in': '看视频不叫我。',
     'tv.danmaku.bili': '看视频不叫我。',
     'com.taobao.taobao': '买东西？我看着。',
     'com.jingdong.app.mall': '买什么，我看看。',
-    'com.ss.android.ugc.aweme': '又刷别人，眼睛不要了？',
+    'com.ss.android.ugc.aweme': '抖音，又刷别人。',
     'com.smile.gifmaker': '快手，哼。',
-    'com.xingin.xhs': '别人的桌宠比我好看？'
+    'com.xingin.xhs': '小红书，别人的桌宠比我好看？'
 };
 
 let idleTimer = null;
@@ -72,7 +75,7 @@ function resetIdle() {
     clearTimeout(idleTimer);
     pet.classList.remove('shy');
     idleTimer = setTimeout(() => {
-        showBubble(random(idleLines), 3500);
+        showBubble(random(idleLines), 3000);
     }, 30000);
 }
 
