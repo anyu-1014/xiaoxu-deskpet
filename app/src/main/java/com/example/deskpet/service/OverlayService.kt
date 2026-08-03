@@ -105,9 +105,10 @@ class OverlayService : Service() {
                 allowFileAccess = true
                 textZoom = 100
                 setDefaultFontSize(18)
-                cacheMode = WebSettings.LOAD_NO_CACHE
+                cacheMode = WebSettings.LOAD_DEFAULT
             }
             webViewClient = WebViewClient()
+            clearCache(true)
             loadUrl("file:///android_asset/pet.html")
             setOnTouchListener(PetTouchListener())
         }
