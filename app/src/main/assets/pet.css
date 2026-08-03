@@ -16,19 +16,18 @@ body {
 
 #pet {
     position: relative;
-    width: 110px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     user-select: none;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* pixelated pixel cat */
+/* 小星星 */
 #cat {
-    image-rendering: pixelated;
-    width: 100px;
-    height: 88px;
+    width: 78px;
+    height: 78px;
     animation: breathe 2.6s ease-in-out infinite;
 }
 
